@@ -1,0 +1,72 @@
+
+.App {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f7fc;
+    padding: 10px;
+  }
+  
+  
+  .app-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Toast Notifications Styling */
+  .Toastify__toast-container {
+    z-index: 9999;
+  }
+  
+  .Toastify__toast {
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .Toastify__toast--info {
+    background-color: #17a2b8;
+  }
+  
+  .Toastify__toast--success {
+    background-color: #ffffff;
+  }
+  
+  .Toastify__toast--error {
+    background-color: #dc3545;
+  }
+  
+  .Toastify__toast--warning {
+    background-color: #ffc107;
+  }
+  
+  
+  .layout-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .layout-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+  }
+  
+  .layout-footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
