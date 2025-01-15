@@ -1,5 +1,5 @@
 // rrd imports
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useSubmit } from "react-router-dom";
 
 // library
 import { toast } from "react-toastify";
@@ -66,6 +66,15 @@ export async function budgetAction({ request }) {
 
 const BudgetPage = () => {
   const { budget, expenses } = useLoaderData();
+  const submit = useSubmit();
+
+  // Handle delete button click
+  const handleDelete = (expenseId) => {
+    const formData = new FormData();
+    formData.append("_action", "deleteExpense");
+    formData.append("expenseId", expenseId);
+    submit(formData, { method: "post" });
+  };
 
   return (
     <div
@@ -79,7 +88,7 @@ const BudgetPage = () => {
       </h1>
 
       <div className="row mb-4 w-100 p-5">
-        <div className="col-lg-6 mb-5 p-5 " style={{border:'solid',borderRadius:'10%'}}>
+        <div className="col-lg-6 mb-5 p-5" style={{ border: "solid", borderRadius: "10%" }}>
           <BudgetItem budget={budget} showDelete={true} />
         </div>
         <div className="col-lg-6">
@@ -87,19 +96,20 @@ const BudgetPage = () => {
         </div>
       </div>
 
-      <div style={{backgroundColor:'lightBlue',width:'100%',height:'3px'}}>
-         
-      </div>
+      <div style={{ backgroundColor: "lightBlue", width: "100%", height: "3px" }}></div>
 
       {expenses && expenses.length > 0 && (
-        <div className="mt-4 ">
+        <div className="mt-4">
           <h2 className="text-center mb-4">
             <span style={{ color: budget.color }}>{budget.name}</span> Expenses
           </h2>
           <div className="d-flex justify-content-center">
-          <Table  expenses={expenses} showBudget={false} />
+            <Table
+              expenses={expenses}
+              showBudget={false}
+              handleDelete={handleDelete} // Pass delete handler to Table
+            />
           </div>
-         
         </div>
       )}
     </div>

@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { Form, useFetcher } from "react-router-dom";
 
 // library imports
-import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
 import { Button, Form as BootstrapForm, Col, Row } from "react-bootstrap";
 
 const AddBudgetForm = () => {
@@ -47,7 +46,7 @@ const AddBudgetForm = () => {
                 step="0.01"
                 name="newBudgetAmount"
                 id="newBudgetAmount"
-                placeholder="e.g., $350"
+                placeholder="e.g., ₹350"
                 required
                 inputMode="decimal"
               />
@@ -68,7 +67,7 @@ const AddBudgetForm = () => {
           ) : (
             <>
               <span>Create Budget</span>
-              <CurrencyDollarIcon width={20} />
+              <i class="fa-solid fa-indian-rupee-sign" width={20}></i>
             </>
           )}
         </Button>

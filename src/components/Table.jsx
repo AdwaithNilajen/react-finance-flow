@@ -1,6 +1,6 @@
 import { Table as BootstrapTable } from "react-bootstrap";
 
-const Table = ({ expenses, showBudget = true }) => (
+const Table = ({ expenses, showBudget = true , handleDelete }) => (
   <BootstrapTable striped bordered hover responsive>
     <thead>
       <tr>
@@ -20,7 +20,12 @@ const Table = ({ expenses, showBudget = true }) => (
             <td>{new Date(expense.createdAt).toLocaleDateString()}</td>
             {showBudget && <td>{expense.budgetName || "N/A"}</td>}
             <td>
-              <button className="btn btn-danger btn-sm">Delete</button>
+            <button
+                className="btn btn-danger btn-sm"
+                onClick={() => handleDelete(expense.id)}
+              >
+                Delete
+              </button>
             </td>
           </tr>
         ))
